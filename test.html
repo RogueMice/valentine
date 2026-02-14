@@ -163,9 +163,9 @@
 
     .cover {
       width: 100%;
-      height: 50vh;
-      height: 50dvh;
-      max-height: 380px;
+      height: 40vh;
+      height: 40dvh;
+      max-height: 340px;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -182,11 +182,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 15%;
       display: block;
       transition: transform 0.6s ease;
-      image-rendering: high-quality;
-      image-rendering: -webkit-optimize-contrast;
     }
 
     .cover:hover img {
@@ -244,50 +241,32 @@
 
     /* Heart icon */
     .heart-icon {
-      font-size: 80px;
+      font-size: 40px;
       display: inline-block;
       transform-origin: center;
-      animation: heartAlive 1.5s ease-in-out infinite;
-      filter: drop-shadow(0 6px 20px rgba(233, 64, 128, 0.5));
-      position: relative;
-      cursor: pointer;
-      transition: filter 0.3s;
+      animation: heartbeat 1.2s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(233, 64, 128, 0.3));
     }
 
-    .heart-icon:hover {
-      filter: drop-shadow(0 8px 30px rgba(233, 64, 128, 0.7));
-      animation-duration: 0.6s;
-    }
-
-    @keyframes heartAlive {
+    @keyframes heartbeat {
       0% {
-        transform: scale(1) translateY(0) rotate(0deg);
-        filter: drop-shadow(0 4px 12px rgba(233, 64, 128, 0.3));
+        transform: scale(1);
       }
 
-      10% {
-        transform: scale(1.2) translateY(-6px) rotate(-3deg);
-        filter: drop-shadow(0 8px 25px rgba(233, 64, 128, 0.6));
+      15% {
+        transform: scale(1.15);
       }
 
-      20% {
-        transform: scale(0.95) translateY(2px) rotate(2deg);
-        filter: drop-shadow(0 4px 12px rgba(233, 64, 128, 0.3));
+      30% {
+        transform: scale(1);
       }
 
-      35% {
-        transform: scale(1.15) translateY(-4px) rotate(-2deg);
-        filter: drop-shadow(0 6px 20px rgba(233, 64, 128, 0.5));
+      45% {
+        transform: scale(1.1);
       }
 
-      50% {
-        transform: scale(1) translateY(0) rotate(0deg);
-        filter: drop-shadow(0 4px 12px rgba(233, 64, 128, 0.3));
-      }
-
-      100% {
-        transform: scale(1) translateY(0) rotate(0deg);
-        filter: drop-shadow(0 4px 12px rgba(233, 64, 128, 0.3));
+      60% {
+        transform: scale(1);
       }
     }
 
@@ -302,9 +281,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: textShimmer 4s ease infinite;
-      margin: 0 0 4px;
-      white-space: nowrap;
-      padding: 0 4px;
+      margin-bottom: 4px;
     }
 
     @keyframes textShimmer {
@@ -335,8 +312,7 @@
       color: var(--text-secondary);
       font-weight: 500;
       line-height: 1.5;
-      max-width: 95%;
-      white-space: nowrap;
+      max-width: 90%;
     }
 
     .typing-cursor::after {
@@ -416,54 +392,6 @@
 
     .btn-primary:active {
       transform: translateY(0) scale(0.98);
-    }
-
-    /* Open Letter button animation */
-    #revealBtn {
-      animation: btnGradient 5s ease infinite, btnPulse 2s ease-in-out infinite;
-      position: relative;
-    }
-
-    #revealBtn::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--pink-400), var(--blue-400), var(--pink-500));
-      background-size: 200% 200%;
-      animation: btnGradient 3s ease infinite;
-      z-index: -1;
-      opacity: 0;
-      filter: blur(8px);
-      animation: btnGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes btnPulse {
-
-      0%,
-      100% {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 6px 20px rgba(233, 64, 128, 0.25);
-      }
-
-      50% {
-        transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 12px 30px rgba(233, 64, 128, 0.4);
-      }
-    }
-
-    @keyframes btnGlow {
-
-      0%,
-      100% {
-        opacity: 0;
-        filter: blur(8px);
-      }
-
-      50% {
-        opacity: 0.6;
-        filter: blur(12px);
-      }
     }
 
     .btn-glass {
@@ -598,9 +526,8 @@
 
     .reveal-card .card-heart {
       font-size: 48px;
-      animation: heartAlive 1.5s ease-in-out infinite;
-      filter: drop-shadow(0 6px 20px rgba(233, 64, 128, 0.5));
-      cursor: pointer;
+      animation: heartbeat 1.2s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(233, 64, 128, 0.3));
     }
 
     .reveal-card p {
@@ -667,8 +594,8 @@
 
     .splash-emoji {
       font-size: 80px;
-      animation: heartAlive 1.5s ease-in-out infinite;
-      filter: drop-shadow(0 8px 24px rgba(233, 64, 128, 0.5));
+      animation: heartbeat 1.2s ease-in-out infinite;
+      filter: drop-shadow(0 8px 24px rgba(233, 64, 128, 0.3));
     }
 
     .splash-title {
@@ -699,23 +626,10 @@
       color: white;
       background: linear-gradient(135deg, var(--pink-400), var(--pink-500), var(--blue-400));
       background-size: 200% 200%;
-      animation: btnGradient 4s ease infinite, btnPulse 2s ease-in-out infinite;
+      animation: btnGradient 4s ease infinite;
       cursor: pointer;
       box-shadow: 0 8px 30px rgba(233, 64, 128, 0.3);
       transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
-
-    .splash-btn::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--pink-400), var(--blue-400));
-      z-index: -1;
-      opacity: 0;
-      filter: blur(12px);
-      animation: btnGlow 2s ease-in-out infinite;
     }
 
     .splash-btn:hover {
@@ -739,8 +653,8 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 440px) {
       .cover {
-        height: 42vh;
-        height: 42dvh;
+        height: 30vh;
+        height: 30dvh;
       }
 
       .title {
@@ -767,8 +681,8 @@
 
     @media (max-height: 700px) {
       .cover {
-        height: 35vh;
-        height: 35dvh;
+        height: 25vh;
+        height: 25dvh;
       }
 
       .heart-icon {
@@ -872,7 +786,7 @@
       <div class="splash-title">Happy Valentine's Day</div>
       <div class="splash-sub">Bạn có một lá thư đặc biệt...</div>
       <button class="splash-btn" id="enterBtn">💌 Mở thư</button>
-      <div class="splash-hint">Nhấn để mở 🤩</div>
+      <div class="splash-hint">Nhấn để mở 🎵</div>
     </div>
   </div>
 
@@ -889,33 +803,32 @@
     <!-- Cover Image -->
     <div class="cover-wrapper fade-up">
       <div class="cover" id="coverArea">
-        <img src="bae.jpg" alt="Valentine roses" id="coverImg">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=85&w=800&auto=format&fit=crop"
+          alt="Valentine roses" id="coverImg">
         <div class="badge">✦ Happy Valentine's Day ♥</div>
       </div>
     </div>
 
     <!-- Content -->
     <div class="content">
-      <div class="fade-up delay-1">
-        <div class="heart-icon">💗</div>
-      </div>
-      <h1 class="title fade-up delay-2">For someone special</h1>
+      <div class="heart-icon fade-up delay-1">💘</div>
+
+      <h1 class="title fade-up delay-2">For Someone Special</h1>
+
       <div class="lines fade-up delay-3">
         <div class="line" id="line1"></div>
         <div class="line" id="line2"></div>
       </div>
 
       <!-- Controls -->
-      <div class="fade-up delay-4">
-        <div class="controls">
-          <button class="btn btn-primary" id="revealBtn">
-            💌 Mở thư
-          </button>
-          <button class="btn btn-glass btn-music" id="musicBtn">
-            <span class="music-bars"><span></span><span></span><span></span><span></span></span>
-            Play Music
-          </button>
-        </div>
+      <div class="controls fade-up delay-4">
+        <button class="btn btn-primary" id="revealBtn">
+          💌 Open Letter
+        </button>
+        <button class="btn btn-glass btn-music" id="musicBtn">
+          <span class="music-bars"><span></span><span></span><span></span><span></span></span>
+          Play Music
+        </button>
       </div>
     </div>
   </div>
@@ -924,8 +837,12 @@
   <div class="overlay" id="overlay">
     <div class="reveal-card">
       <div class="card-heart">💖</div>
-      <h2>Gửi em</h2>
-      <p id="finalMsg"></p>
+      <h2>For You</h2>
+      <p id="finalMsg">
+        You make my world brighter every single day.<br>
+        I'm so lucky to have you in my life.<br>
+        Every moment with you is a gift I treasure. 🌹
+      </p>
       <button class="btn btn-primary" id="closeCard">Close 💕</button>
     </div>
   </div>
@@ -940,14 +857,14 @@
     // ===== FLOATING HEARTS =====
     (function createFloatingHearts() {
       const container = document.getElementById('floatingHearts');
-      const hearts = ['💕', '💖', '💗', '💘', '💝', '🍉', '🐭', '😍', '🩷', '🩵', '✨', '🌸'];
+      const hearts = ['💕', '💖', '💗', '💘', '💝', '♥', '🩷', '🩵', '✨', '🌸'];
       for (let i = 0; i < 25; i++) {
         const span = document.createElement('span');
         span.textContent = hearts[Math.floor(Math.random() * hearts.length)];
         span.style.left = Math.random() * 100 + '%';
         span.style.fontSize = (14 + Math.random() * 20) + 'px';
-        span.style.animationDuration = (5 + Math.random() * 7) + 's';
-        span.style.animationDelay = (Math.random() * 5) + 's';
+        span.style.animationDuration = (8 + Math.random() * 12) + 's';
+        span.style.animationDelay = (Math.random() * 10) + 's';
         container.appendChild(span);
       }
     })();
@@ -1029,8 +946,8 @@
 
     // ===== TYPEWRITER EFFECT =====
     const messages = [
-      "Tui có đôi lời muốn nói với em ... 🍉",
-      "Click vào thư để đọc nó nhé 💌"
+      "Every moment with you feels like magic... ✨",
+      "Tap below to see something special 💌"
     ];
 
     function typeLine(el, text, speed = 38) {
@@ -1048,9 +965,6 @@
         }, speed);
       });
     }
-
-    const finalMessage = "Anh cảm ơn em, vì đã xuất hiện, đã đến trong cuộc đời anh. Anh mong dù có ra sao hay như nào, dù cho đằng trước có là ngọt ngào hay thử thách, chúng ta cũng cùng nhau vượt qua." +
-      " Anh chỉ mong em sẽ ở bên anh, anh chỉ cần vậy thôi á. Anh yêu em.  🐭 🍉";
 
     (async function startTyping() {
       await new Promise(r => setTimeout(r, 1200));
@@ -1142,26 +1056,9 @@
     const closeCard = document.getElementById('closeCard');
     const coverArea = document.getElementById('coverArea');
 
-    let finalMsgTimer = null;
-
     function openCard() {
       overlay.classList.add('show');
       launchConfetti(150);
-
-      // Typewriter effect for final message
-      const finalMsg = document.getElementById('finalMsg');
-      if (finalMsgTimer) clearInterval(finalMsgTimer);
-      finalMsg.textContent = '';
-      finalMsg.classList.add('typing-cursor');
-      let i = 0;
-      finalMsgTimer = setInterval(() => {
-        finalMsg.textContent += finalMessage.charAt(i++);
-        if (i >= finalMessage.length) {
-          clearInterval(finalMsgTimer);
-          finalMsgTimer = null;
-          finalMsg.classList.remove('typing-cursor');
-        }
-      }, 30);
     }
 
     revealBtn.addEventListener('click', openCard);
